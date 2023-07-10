@@ -1,0 +1,23 @@
+.paper{
+    border-radius: 10px !important;
+}
+.form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 10px;
+}
+.textField{
+    width: 100%;
+    margin: 10px;
+}
+.fileInput{
+    width: 97%;
+    margin: 0 0 13px 13px;
+}
+.buttonSubmit{
+    margin: 0 13px 13px 13px !important;
+}
+.buttonClear{
+    margin: 0 13px 13px 13px !important;
+}

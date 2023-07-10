@@ -1,0 +1,33 @@
+.appBar{
+    border-radius: 10px;
+    margin: 30px 0;
+    flex-direction: row !important;
+    justify-content: space-around;
+    align-items: stretch; 
+}
+.brandContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.heading{
+    color: rgba(0,183,255, 1);
+}
+.image{
+    margin-left: 15px;
+}
+.container{
+    /* background-color: red; */
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

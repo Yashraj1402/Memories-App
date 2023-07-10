@@ -1,0 +1,37 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.iconAndheading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}
+.lockContainer{
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+.inputField{
+    margin: 10px;
+}
+.submit{
+    margin: 10px;
+}
+.toggleForm{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+.googleButton{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
