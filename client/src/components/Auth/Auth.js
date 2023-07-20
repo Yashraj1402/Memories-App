@@ -12,6 +12,7 @@ import Icon from './icon';
 // import { GoogleLogin } from '@react-oauth/google';
 import {GoogleLoginButton} from 'react-social-login-buttons';
 import { LoginSocialGoogle } from 'reactjs-social-login';
+import GoogleIcon from '@mui/icons-material/Google';
 import { borderColor, display } from '@mui/system';
 
 // 218632832453-pefat8tt5ofnfhg7h97h2j9bsla9ivbv.apps.googleusercontent.com
@@ -71,7 +72,7 @@ const Auth = () => {
       <Paper elevation={3}>
         <div className={classes.mainContainer}>
           <div className={classes.iconAndheading}>
-            <Avatar className={classes.lockContainer} sx={{ color: 'rgb(4 63 87)', backgroundColor: '#ff8585' }}>
+            <Avatar className={classes.lockContainer} sx={{ color: 'rgb(33 33 33)', backgroundColor: '#9bc9ff' }}>
               <div className={classes.lockIcon}><LockOutlinedIcon /></div>
             </Avatar>
             <div className={classes.heading}><Typography variant='h5'>{isSignup ? 'Sign Up' : 'Sign In'}</Typography></div>
@@ -103,7 +104,7 @@ const Auth = () => {
             </div>
 
             <div className={classes.submit}>
-              <Button type="submit" fullWidth variant='contained' color='primary'>
+              <Button type="submit" fullWidth variant='contained' color='primary' size='large'>
                 {
                   isSignup ? 'Sign Up' : 'Log In'
                 }
@@ -132,6 +133,7 @@ const Auth = () => {
             /> */}
 
             <LoginSocialGoogle
+              className={classes.googleContainer}
               client_id={"218632832453-pefat8tt5ofnfhg7h97h2j9bsla9ivbv.apps.googleusercontent.com"}
               scope="openid profile email"
               discoveryDocs="claims_supported"
@@ -147,8 +149,9 @@ const Auth = () => {
             >
               <GoogleLoginButton
                 className={classes.googleButton}
-                text='Log In with Google'
+                text='Log In with google'
                 fullWidth
+                style={{height: '40px'}}
               />
             </LoginSocialGoogle>
 

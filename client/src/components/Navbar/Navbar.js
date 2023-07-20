@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Link, useNavigate,useLocation } from 'react-router-dom';
-import mountains from '../../images/mountains.png';
+import algoFarm from '../../images/AlgoFarmLogo.png';
 import { AppBar, Typography, Toolbar, Button, Avatar } from '@mui/material';
 import classes from './Navbarstyles.module.css';
 import { useDispatch } from 'react-redux';
@@ -33,11 +33,11 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <AppBar className={classes.appBar} position='static' color='inherit' sx={{width: '92%'}}>
+    <AppBar className={classes.appBar} position='static' color='inherit'>
       <div className={classes.container}>
         <div className={classes.brandContainer}>
-          <Typography component={Link} to="/" className={classes.heading} variant='h2' style={{ textDecoration: 'none' }}>Memories</Typography>
-          <img className={classes.image} src={mountains} alt="mountains" height={60} />
+          <Typography component={Link} to="/" className={classes.heading} variant='h2' style={{ textDecoration: 'none' }}>AlgoFarm</Typography>
+          <img className={classes.image} src={algoFarm} alt="AlgoFarm" height={60} />
         </div>
         <Toolbar className={classes.toolbar}>
           {user ? (

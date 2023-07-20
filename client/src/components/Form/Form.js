@@ -16,7 +16,7 @@ const Form = ({ currentId, setCurrentID }) => {
     });
     const user = JSON.parse(localStorage.getItem('profile'));
     const dispatch = useDispatch();
-    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+    const post = useSelector((state) => currentId ? state.posts.posts.find((p) => p._id === currentId) : null);
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log(postData);
@@ -54,9 +54,9 @@ const Form = ({ currentId, setCurrentID }) => {
     }
 
     return (
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} elevation={6}>
             <form autoComplete='off' noValidate className={classes.form} onSubmit={handleSubmit}>
-                <Typography variant='h6'>{currentId ? 'Editing' : 'Creating'} a Memory</Typography>
+                <Typography variant='h6'>{currentId ? 'Editing' : 'Creating'} a Post</Typography>
                 <div className={classes.textField}><TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} /></div>
                 <div className={classes.textField}><TextField name="message" variant="outlined" label="Message" fullWidth value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} /></div>
                 <div className={classes.textField}><TextField name="tags" variant="outlined" label="Tags" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} /></div>
