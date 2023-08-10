@@ -18,7 +18,7 @@ const Paginate = ({ page }) => {
 
     return(
         <Pagination
-            sx={{marginTop: '1rem', borderRadius:'10px'}}
+            sx={{marginTop: '1rem', borderRadius:'10px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}
             count={numberOfPages}
             page={Number(page) || 1}
             variant='outlined'

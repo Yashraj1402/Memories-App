@@ -4,6 +4,7 @@ import { TextField, Button, Typography, Paper } from '@mui/material';
 import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost } from '../../actions/posts';
+import { useNavigate } from 'react-router-dom';
 
 // Get the current id of the post you are on:
 
@@ -16,6 +17,7 @@ const Form = ({ currentId, setCurrentID }) => {
     });
     const user = JSON.parse(localStorage.getItem('profile'));
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const post = useSelector((state) => currentId ? state.posts.posts.find((p) => p._id === currentId) : null);
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,7 +26,7 @@ const Form = ({ currentId, setCurrentID }) => {
         if (currentId) {
             dispatch(updatePost(currentId, {...postData, name: user?.result?.name}));
         } else {
-            dispatch(createPost({...postData, name: user?.result?.name}));
+            dispatch(createPost({...postData, name: user?.result?.name}, navigate));
         }
 
         clear();

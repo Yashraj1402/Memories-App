@@ -3,7 +3,7 @@ import { Paper, Typography, CircularProgress, Divider } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getPost } from '../../actions/posts';
+import { getPost, getPosts, getPostsBySearch } from '../../actions/posts';
 
 import classes from './PostDetails.module.css';
 
@@ -17,11 +17,21 @@ const PostDetails = () => {
     dispatch(getPost(id));
   }, [id])
 
+  useEffect(() => {
+    if(post) dispatch(getPostsBySearch({ searchValue: 'none', tags: post?.tags.join(',')}));
+  }, [post])
+
   if(!post) return null;
 
   if(isLoading){
-    return <Paper elevation={6}> <CircularProgress size='7em' /> </Paper>
+    return <Paper elevation={6} className={classes.loadingPaper}> <CircularProgress size='7em' /> </Paper>
   }
+
+  const recommendedPosts = posts.filter(({_id}) => post._id !== _id);
+
+  const openPost = (_id) => {
+    navigate(`/posts/${_id}`);
+  };
   
   return (
     <Paper sx={{ padding: '20px', borderRadius: '15px' }} elevation={6}>
@@ -43,10 +53,24 @@ const PostDetails = () => {
         </div>
       </div>
 
-      {/* Recommended Posts: */}
-
-
-
+      {recommendedPosts.length && (
+        <div className={classes.section}>
+          <Typography gutterBottom variant='h5'>You might also like:</Typography>
+          <Divider />
+          <div className={classes.recommendedPosts}>
+            {console.log("These are recommended posts:\n")}
+            {recommendedPosts.map((rp) => (
+              <div style={{margin: '20px', cursor: 'pointer'}} onClick={() => openPost(rp._id)} key={rp._id}>
+                <Typography gutterBottom variant='h6'>{rp.title}</Typography>
+                <Typography gutterBottom variant='subtitle2'>{rp.name}</Typography>
+                <Typography gutterBottom variant='subtitle2'>{rp.message}</Typography>
+                <Typography gutterBottom variant='subtitle1'>Likes: {rp.likes.length}</Typography>
+                <img src={rp.selectedFile} width='200px' />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </Paper>
   )
 }

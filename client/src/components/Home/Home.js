@@ -43,7 +43,6 @@ const Home = () => {
 
   const handleKeyPressTags = (event) => {
     if (event.key === 'Enter' && tagsValue.trim() !== '') {
-      console.log('tags value: ' + tagsValue);
       setTags([...tags, tagsValue]);
       setTagsValue('');
     }

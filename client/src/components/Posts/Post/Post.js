@@ -46,7 +46,10 @@ const Post = ({post, setCurrentID}) => {
                     <Button 
                         style={{color: 'white'}} 
                         size="small" 
-                        onClick={() => setCurrentID(post._id)}
+                        onClick={(e) =>{ 
+                            e.stopPropagation();
+                            setCurrentID(post._id);
+                        }}
                     >
                         <MoreHorizIcon fontSize="small" />
                     </Button>
@@ -67,6 +70,7 @@ const Post = ({post, setCurrentID}) => {
             {(user?.result.googleId === post?.creator || user?.result?._id === post?.creator) && (
                 <Button size="small" color="primary" 
                     onClick={() => {
+                        console.log('delete');
                         dispatch(deletePost(post._id))
                     }}>
                     <DeleteIcon fontSize='small' />
