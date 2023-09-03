@@ -11,6 +11,9 @@
     justify-content: center;
     align-items: center;
 }
+.brandContainer:hover{
+    cursor: pointer;
+}
 .heading{
     color: rgb(25 118 210);
 }

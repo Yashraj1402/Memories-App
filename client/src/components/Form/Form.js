@@ -48,7 +48,7 @@ const Form = ({ currentId, setCurrentID }) => {
     if(!user?.result?.name){
         return(
             <Paper className={classes.paper}>
-                <Typography variant='h6' align='center'>
+                <Typography variant='subtitle1' align='center' sx={{margin: '2px'}}>
                     Please Log In to create and like posts
                 </Typography>
             </Paper>

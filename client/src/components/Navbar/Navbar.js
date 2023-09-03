@@ -11,6 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
+  const onClickLogo = () => navigate('/');
   
   const handleLogout = () => {
     dispatch({type: 'LOGOUT'});
@@ -19,6 +20,7 @@ const Navbar = () => {
     
     setUser(null)
   };
+
 
   useEffect(() => {
     const token = user?.token;
@@ -35,8 +37,8 @@ const Navbar = () => {
   return (
     <AppBar className={classes.appBar} position='static' color='inherit'>
       <div className={classes.container}>
-        <div className={classes.brandContainer}>
-          <Typography component={Link} to="/" className={classes.heading} variant='h2' style={{ textDecoration: 'none' }}>AlgoFarm</Typography>
+        <div className={classes.brandContainer} onClick={onClickLogo}>
+          <Typography component={Link} className={classes.heading} variant='h2' style={{ textDecoration: 'none' }}>AlgoFarm</Typography>
           <img className={classes.image} src={algoFarm} alt="AlgoFarm" height={60} />
         </div>
         <Toolbar className={classes.toolbar}>

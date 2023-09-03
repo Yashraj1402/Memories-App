@@ -6,13 +6,8 @@ API.interceptors.request.use((req) => {
     if(localStorage.getItem('profile')){
         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
     }
-
     return req;
 });
-// axios.defaults.withCredentials = true; --> cookies apne aap chale jayengi server ko har req ke sath
-// const cookieParser = require("cookie-parser");
-// app.use(cookieParser());
-// const token = req.cookies.token;
 
 export const fetchPost = (id) => API.get(`/posts/${id}`);
 export const fetchPosts = (page) => API.get(`/posts?page=${page}`);

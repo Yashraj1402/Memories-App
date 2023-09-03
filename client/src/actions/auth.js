@@ -1,4 +1,4 @@
-import {AUTH} from '../constants/actionTypes';
+import {AUTH, AUTH_FAILURE} from '../constants/actionTypes';
 import * as api from '../api';
 
 export const signin = (formData, navigate) => async (dispatch) => {
@@ -8,8 +8,10 @@ export const signin = (formData, navigate) => async (dispatch) => {
         dispatch({type: AUTH, data});
 
         navigate('/');
-    } catch (error) {
+    } catch (error) { 
+        console.log("Sign In failed\n");
         console.log(error);
+        dispatch({ type: AUTH_FAILURE });
     }
 };
 
@@ -21,6 +23,7 @@ export const signup = (formData, navigate) => async (dispatch) => {
 
         navigate('/');
     } catch (error) {
+        console.log("Sign Up failed\n");
         console.log(error);
     }
 };

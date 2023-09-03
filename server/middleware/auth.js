@@ -13,6 +13,8 @@ const auth = async(req, res, next) => {
             // if(decodedData) req.userId = decodedData.id;
             req.userId = decodedData?.id;
         } else{
+            console.log('Inside middleware:\n');
+            console.log(token);
             decodedData = jwt.decode(token);
 
             req.userId = decodedData?.sub;
